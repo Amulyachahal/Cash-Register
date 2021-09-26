@@ -6,12 +6,11 @@ const noOfNotes = document.querySelectorAll(".no-of-notes");
 
 const notes = [2000, 500, 100, 20, 10, 5, 1];
 
-let billValueNumber = Number(billValue.value);
-let cashPaidNumber = Number(cashPaid.value);
-
 calculateChange.addEventListener("click", () => {
+  const billValueNumber = Number(billValue.value);
+  const cashPaidNumber = Number(cashPaid.value);
   hideMessage();
-  console.log(billValueNumber, cashPaidNumber);
+  //   console.log(billValueNumber, cashPaidNumber);
   if (billValueNumber > 0) {
     if (cashPaidNumber >= billValueNumber) {
       const amountToBeReturned = cashPaidNumber - billValueNumber;
@@ -19,7 +18,7 @@ calculateChange.addEventListener("click", () => {
       // } else if (cashPaid.value === billValue.value) {
       //   showMessage("No change needed");
     } else {
-      showMessage("do you wanna wash plates?");
+      showMessage("Do you want to wash plates? 😂");
     }
   } else {
     showMessage("invalid bill amount");
@@ -41,4 +40,5 @@ const calculateChangeAmount = (amountToBeReturned) => {
     amountToBeReturned = amountToBeReturned % notes[i];
     noOfNotes[i].innerText = noOfNotesToBeReturned;
   }
+  showMessage(`Here's your change`);
 };
